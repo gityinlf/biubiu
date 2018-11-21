@@ -20,9 +20,3 @@ target/
 *.diff
 *.patch
 *.tmp
-
-# system file
-.DS_Store
-Thumbs.db
-/src/main/resources/proxool.xml
-/src/main/resources/biubiu.properties
