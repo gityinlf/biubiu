@@ -24,18 +24,19 @@ public class UploadService {
 
         FileUtils.copyFile(file, targetFile);//复制到服务器
 
-
-        Boolean aBoolean = COSUtil.uploadFile(cosPathPrefix + uploadFileName, targetFile.getAbsolutePath());
-        if (!aBoolean) {
-            throw new Exception("COS上传失败");
-        }
+        /****Cos注释
+        //Boolean aBoolean = COSUtil.uploadFile(cosPathPrefix + uploadFileName, targetFile.getAbsolutePath());
+        //if (!aBoolean) {
+        //    throw new Exception("COS上传失败");
+        //}
         //已经上传到Cos
-
-        targetFile.delete();
+        //targetFile.delete();
 
 
         //  /img/ -> img/
-        return cosPathPrefix.substring(1, cosPathPrefix.length()) + targetFile.getName();
+        //return cosPathPrefix.substring(1, cosPathPrefix.length()) + targetFile.getName();、
+         ***/
+        return targetFile.getName();
     }
 
 
@@ -51,17 +52,22 @@ public class UploadService {
         boolean extractOk = VideoUtils.extractThumbnail(video, targetFile.getAbsolutePath());
         if (extractOk) {
             System.out.println("提取成功");
-            Boolean aBoolean = COSUtil.uploadFile(cosPathPrefix + uploadFileName, targetFile.getAbsolutePath());
-            if (!aBoolean) {
-                throw new Exception("COS上传失败");
-            }
+            /* Cos 注释掉
+            //Boolean aBoolean = COSUtil.uploadFile(cosPathPrefix + uploadFileName, targetFile.getAbsolutePath());
+            //if (!aBoolean) {
+            //    throw new Exception("COS上传失败");
+            //}
+            */
         } else {
+        	System.out.println(targetFile.getAbsolutePath());
             throw new Exception("提取失败");
         }
 
+        return targetFile.getName();
+        /* Cos 注释掉
         //已经上传到Cos
-        targetFile.delete();
-
-        return cosPathPrefix.substring(1, cosPathPrefix.length()) + targetFile.getName();
+        //targetFile.delete();
+        //return cosPathPrefix.substring(1, cosPathPrefix.length()) + targetFile.getName();
+        */
     }
 }

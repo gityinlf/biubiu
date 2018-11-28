@@ -20,6 +20,7 @@ public class VideoUtils {
         List<String> command = new ArrayList<String>();
         File ffmpegExe = new File(FFMPEG_EXECUTOR);
         if (!ffmpegExe.exists()) {
+        	System.out.println(FFMPEG_EXECUTOR);
             logger.info("转码工具不存在");
             return false;
         }
@@ -28,7 +29,7 @@ public class VideoUtils {
         System.out.println(inputFile.getAbsolutePath());
         command.add(ffmpegExe.getAbsolutePath());
         command.add("-ss");
-        command.add("10");
+        command.add("3");
         command.add("-t");
         command.add("0.001");
         command.add("-i");

@@ -106,8 +106,11 @@ public class UploadAction extends JsonActionSupport implements ServiceSupport {
             String thumbnailExtend = ".jpg";
             //提取并上传封面
             try {
-                targetVideoCoverURI = UploadService.extractAndUplaod(file, thumbnailExtend, tmp_path, PropertiesUtil.getProperty("video_cover.prefix"));
-                videoCoverURL = PropertiesUtil.getProperty("cos.server.http.prefix") + targetVideoCoverURI;
+            	//Cos注释
+                //targetVideoCoverURI = UploadService.extractAndUplaod(file, thumbnailExtend, tmp_path, PropertiesUtil.getProperty("video_cover.prefix"));
+            	//videoCoverURL = PropertiesUtil.getProperty("cos.server.http.prefix") + targetVideoCoverURI;
+            	targetVideoCoverURI = UploadService.extractAndUplaod(file, thumbnailExtend, PropertiesUtil.getProperty("video_cover.prefix"), PropertiesUtil.getProperty("video_cover.prefix"));
+                videoCoverURL = PropertiesUtil.getProperty("video_cover.prefix") + targetVideoCoverURI;
                 isCoverOk = true;
             } catch (Exception e) {
                 success = false;
@@ -116,8 +119,11 @@ public class UploadAction extends JsonActionSupport implements ServiceSupport {
 
             //上传视频
             try {
-                targetVideoURI = UploadService.upload(file, fileFileName, tmp_path, PropertiesUtil.getProperty("video.prefix"));
-                videoURL = PropertiesUtil.getProperty("cos.server.http.prefix") + targetVideoURI;
+            	//Cos注释
+                //targetVideoURI = UploadService.upload(file, fileFileName, tmp_path, PropertiesUtil.getProperty("video.prefix"));
+            	//videoURL = PropertiesUtil.getProperty("cos.server.http.prefix") + targetVideoURI;
+            	targetVideoURI = UploadService.upload(file, fileFileName, PropertiesUtil.getProperty("video.prefix"), PropertiesUtil.getProperty("video.prefix"));
+                videoURL = PropertiesUtil.getProperty("video.prefix") + targetVideoURI;
                 isVideoOK = true;
             } catch (Exception e) {
                 success = false;
