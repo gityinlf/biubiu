@@ -109,8 +109,8 @@ public class UploadAction extends JsonActionSupport implements ServiceSupport {
             	//Cos注释
                 //targetVideoCoverURI = UploadService.extractAndUplaod(file, thumbnailExtend, tmp_path, PropertiesUtil.getProperty("video_cover.prefix"));
             	//videoCoverURL = PropertiesUtil.getProperty("cos.server.http.prefix") + targetVideoCoverURI;
-            	targetVideoCoverURI = UploadService.extractAndUplaod(file, thumbnailExtend, PropertiesUtil.getProperty("video_cover.prefix"), PropertiesUtil.getProperty("video_cover.prefix"));
-                videoCoverURL = PropertiesUtil.getProperty("video_cover.prefix") + targetVideoCoverURI;
+            	targetVideoCoverURI = UploadService.extractAndUplaod(file, thumbnailExtend, PropertiesUtil.getProperty("video_cover.prefix"), PropertiesUtil.getProperty("cos.prefix"));
+                videoCoverURL = PropertiesUtil.getProperty("cos.server.http.prefix") + targetVideoCoverURI;
                 isCoverOk = true;
             } catch (Exception e) {
                 success = false;
@@ -122,8 +122,8 @@ public class UploadAction extends JsonActionSupport implements ServiceSupport {
             	//Cos注释
                 //targetVideoURI = UploadService.upload(file, fileFileName, tmp_path, PropertiesUtil.getProperty("video.prefix"));
             	//videoURL = PropertiesUtil.getProperty("cos.server.http.prefix") + targetVideoURI;
-            	targetVideoURI = UploadService.upload(file, fileFileName, PropertiesUtil.getProperty("video.prefix"), PropertiesUtil.getProperty("video.prefix"));
-                videoURL = PropertiesUtil.getProperty("video.prefix") + targetVideoURI;
+            	targetVideoURI = UploadService.upload(file, fileFileName, PropertiesUtil.getProperty("video.prefix"), PropertiesUtil.getProperty("cos.prefix"));
+                videoURL = PropertiesUtil.getProperty("cos.server.http.prefix") + targetVideoURI;
                 isVideoOK = true;
             } catch (Exception e) {
                 success = false;

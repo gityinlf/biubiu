@@ -23,6 +23,9 @@ public class UploadService {
         File targetFile = new File(tmp_path, uploadFileName);
 
         FileUtils.copyFile(file, targetFile);//复制到服务器
+        
+        File cosFile = new File(cosPathPrefix,uploadFileName);
+        FileUtils.copyFile(file,cosFile);
 
         /****Cos注释
         //Boolean aBoolean = COSUtil.uploadFile(cosPathPrefix + uploadFileName, targetFile.getAbsolutePath());
@@ -52,6 +55,9 @@ public class UploadService {
         boolean extractOk = VideoUtils.extractThumbnail(video, targetFile.getAbsolutePath());
         if (extractOk) {
             System.out.println("提取成功");
+            
+            File cosFile = new File(cosPathPrefix,uploadFileName);
+            FileUtils.copyFile(targetFile,cosFile);
             /* Cos 注释掉
             //Boolean aBoolean = COSUtil.uploadFile(cosPathPrefix + uploadFileName, targetFile.getAbsolutePath());
             //if (!aBoolean) {
