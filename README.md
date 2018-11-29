@@ -1,10 +1,7 @@
-# biubiu
+#############################################################
 弹幕视频与直播网站
 
-测试账户：
-用户名：小美  &nbsp;&nbsp;&nbsp; 密码：123
-
-项目演示地址（已关闭）：[https://biubiu.zcdev.xyz](https://biubiu.zcdev.xyz)  
+项目演示地址（）：[https://www.flydragon.net](https://www.flydragon.net)  
 
 项目功能介绍：
 
